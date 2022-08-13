@@ -1,0 +1,97 @@
+type Query{
+  users: [User]
+  comments: [Comments]
+  commentsByEvent(event: String): [Comments]
+  commentsByVideoId(videoId: String): [Comments]
+  unlikesByVideoId(videoId: String): [UnLikes]
+  unlikesByEvent(event: String): [UnLikes]
+  likesByVideoId(videoId: String): [Likes]
+  likesByEvent(event: String): [Likes]
+  
+}
+type Mutation{
+  saveUser(userDTO: UserDTOInput): String
+  saveComment(commentDTO: CommentDTOInput): Comments
+  editComment(editCommentDTOInput: EditCommentDTOInput): Comments
+  deleteComment(id:ID!): String
+  addLike(addLikeDTO: AddLikeDTOInput): Likes
+  deleteLike(id:ID): String
+  addUnLike(addLikeDTO: AddLikeDTOInput): UnLikes
+  deleteUnLike(id:ID): String
+  userLogin(loginDTO:LoginDTOInput): LoginResponseDTOInput
+  verifyRegistration(token:String): LoginResponseDTOInput
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  role: String!
+  enabled: Boolean
+}
+
+type Comments {
+  id: ID!
+  comment: String!
+  event: String!
+  videoId: String!
+  user: User!
+  
+}
+
+type UnLikes {
+  id: ID!
+  unlikeVideo: Int!
+  videoId: String!
+  event: String!
+  user: User!
+  
+}
+
+type Likes {
+  id: ID!
+  likeVideo: Int!
+  videoId: String!
+  event: String!
+  user: User!
+  
+}
+
+type LoginResponseDTOInput{
+  jwt: String
+  response: String
+}
+
+input UserDTOInput{
+  firstName: String 
+  lastName: String 
+  email: String 
+  password: String 
+}
+
+input LoginDTOInput{
+  email: String 
+  password: String 
+}
+
+input CommentDTOInput{
+  comment: String
+  event: String
+  videoId: String
+  email: String
+}
+
+input EditCommentDTOInput{
+  id: ID
+  comment: String
+}
+
+input AddLikeDTOInput{
+  likeVideo: Int
+  videoId: String
+  event: String
+  email: String
+  unlikeVideo:Int
+}
