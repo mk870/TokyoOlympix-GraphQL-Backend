@@ -7,15 +7,15 @@
 * It uses  Spring boot with Tomcat server as a framework.
 * The app has 1 endpoint facilitating 16 GraphQL mappings, 10 mutations  and 6 queries.
 * The API uses Spring security and Jwt to secure this endpoint.
-* Last but not least it uses spring boot data jpa (hibernate) to persist data to a mysql database.
+* Last but not least it uses spring boot data jpa (hibernate) to persist data to a postgreSQL database.
 
 
 ### **Resources Used**
 ***
-**Java Version**: 18
+**Java Version**: 17
 
-**Dependencies**: Jwt Token, Hibernate, Spring security, Java Mail,Spring GraphQL, TomcatServer, lombok, mysql-connector and Spring web.  
-![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white) 	![JWT](https://img.shields.io/badge/JWT-black?style=flat&logo=JSON%20web%20tokens) 	![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=flat&logo=mysql&logoColor=white) ![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=flat&logo=graphql&logoColor=white)
+**Dependencies**: Jwt Token, Hibernate, Spring security, Java Mail,Spring GraphQL, TomcatServer, lombok, postgreSQL-connector and Spring web.  
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white) 	![JWT](https://img.shields.io/badge/JWT-black?style=flat&logo=JSON%20web%20tokens) 	![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=flat&logo=postgresql&logoColor=white) ![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=flat&logo=graphql&logoColor=white)
 
 **For Web Framework Requirements**: pom.xml
 
@@ -49,7 +49,7 @@ Built 3 Controllers, UserController, CommentsController and LikesController.
 * **deleteUnLike(id) (Mutation)** : allows users to delete their specific video dislikes by id from the database. 
 
 ### **Data Storage**
-The backend uses Spring data JPA (Hibernate) to persist and retrieve data from a mysql database.  
+The backend uses Spring data JPA (Hibernate) to persist and retrieve data from a postgreSQL database.  
 The API has 5 entities: 
 * User Entity to store app users.
 * VerificationToken Entity to store signup verification tokens.
@@ -61,6 +61,6 @@ The API has 5 entities:
 
 ### **Productionization**
 ***
-In this step I deployed the mysql database to AWS and deployed the springboot app to Heroku cloud.
+In this step I deployed the postgreSQL database to AWS and deployed the springboot app on Railway cloud.
 
 **Live Implemantation:** [Tokyo Olympix App](https://tokyo-olympix.vercel.app)
